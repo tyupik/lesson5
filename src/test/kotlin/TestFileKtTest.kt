@@ -10,7 +10,7 @@ class TestFileKtTest {
     val testPlaceholder = Placeholder("test placeholder")
     val testDonut = Donut(false, 100, testPlaceholder, true, "all")
     val testPost = Post(
-        0, 0, 1, 2,
+        1, 0, 1, 2,
         12122020, "test text", 4, 4,
         false, testComment, testCopyright, testLikes, testRepost, testViews,
         "post", 9, true, true, true, false, false,
@@ -24,12 +24,17 @@ class TestFileKtTest {
     }
 
     @Test
-    fun isPostUpdated() {
+    fun isPostUpdatedFalse() {
         addNewPost(testPost)
         val result = updatePost(testPost.copy(id = 0))
         assertTrue(!result)
 
-        val secondResult = updatePost(testPost.copy(id = 1))
-        assertTrue(secondResult)
+    }
+
+    @Test
+    fun isPostUpdatedTrue() {
+        addNewPost(testPost)
+        val result = updatePost(testPost.copy(id = 1))
+        assertTrue(result)
     }
 }

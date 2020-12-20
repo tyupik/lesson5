@@ -1,4 +1,4 @@
-val wallService = WallService()
+
 fun main() {
     val testComment = Comments(5, true, true, true, true)
     val testCopyright = Copyright(5, "copy test link", "copy name", "copy type")
@@ -19,9 +19,9 @@ fun main() {
 }
 
 fun addNewPost(post: Post): Post {
-    return wallService.add(post)
+    return WallService.add(post)
 }
 
 fun updatePost(post: Post): Boolean {
-    return wallService.update(post)
+    return WallService.update(post)
 }

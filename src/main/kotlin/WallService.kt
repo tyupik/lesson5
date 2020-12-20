@@ -1,9 +1,9 @@
-class WallService {
-    private var nextId = 0
+object WallService {
     var posts = emptyArray<Post>()
 
     fun add(newPost: Post): Post {
-        val copy = newPost.copy(id = ++nextId)
+        val nextId: Int = if (posts.isEmpty()) 1 else posts[posts.size - 1].id + 1
+        val copy = newPost.copy(id = nextId)
         posts += copy
         return copy
     }
