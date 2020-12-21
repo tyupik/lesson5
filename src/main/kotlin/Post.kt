@@ -25,5 +25,8 @@ data class Post(
     val isFavorite: Boolean,
     val donut: Donut,
     val postponedId: Int,
-    val attachments: Arrays? = null
+    val attachments: Arrays? = null,
+    val copyHistory: Arrays? = null,
+    val geo: Geo? = null,
+    val postSource: PostSource? = null
 )

@@ -1,4 +1,4 @@
 data class AlbumAttachment(
-    override val type: String,
-    override val attach: Album,
+    override val type: String = "Album",
+    val album: Album,
 ) : Attachment
