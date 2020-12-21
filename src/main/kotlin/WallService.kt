@@ -1,5 +1,6 @@
 object WallService {
-    var posts = emptyArray<Post>()
+    private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
 
     fun add(newPost: Post): Post {
         val nextId: Int = if (posts.isEmpty()) 1 else posts[posts.size - 1].id + 1
@@ -18,5 +19,18 @@ object WallService {
             }
         }
         return false
+    }
+    private fun findById (id: Int): Post? {
+        for (post in posts){
+            if (post.id == id) {
+                return post
+            }
+        }
+        return null
+    }
+
+    fun createComment(comment: Comment) {
+        findById(comment.postId)?.id ?: throw PostNotFoundException("Пост с id ${comment.postId} не найден")
+        comments += comment
     }
 }

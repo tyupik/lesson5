@@ -37,4 +37,18 @@ class TestFileKtTest {
         val result = updatePost(testPost.copy(id = 1))
         assertTrue(result)
     }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        val comment = Comment(postId = 100)
+        WallService.createComment(comment)
+    }
+
+    @Test
+    fun addComment() {
+        val post = Post(id = 0)
+        WallService.add(post)
+        val comment = Comment(postId = 1)
+        WallService.createComment(comment)
+    }
 }

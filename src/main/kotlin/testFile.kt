@@ -24,8 +24,10 @@ fun main() {
     val eventAttachment = EventAttachment("event", event)
     val photoAttachment = PhotoAttachment("photo", photo)
     val albumAttachment = AlbumAttachment("album", album)
+    val comment = Comment(postId = 2)
 
-    var attachments = ArrayList<Attachment>()
+
+    val attachments = ArrayList<Attachment>()
     attachments.add(marketAlbumAttachment)
     attachments.add(eventAttachment)
     attachments.add(photoAttachment)
@@ -35,6 +37,7 @@ fun main() {
 
     println(addNewPost(testPost).id)
     println(updatePost(testPost.copy(id = 1)))
+    //WallService.createComment(comment)
 }
 
 
