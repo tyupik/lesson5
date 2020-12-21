@@ -1,4 +1,4 @@
 data class EventAttachment(
-    override val type: String,
-    override val attach: Event,
+    override val type: String = "Event",
+    val event: Event,
 ) : Attachment
